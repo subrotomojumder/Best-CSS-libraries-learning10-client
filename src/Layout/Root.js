@@ -1,10 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../component/Common/Header';
 
 const Root = () => {
     return (
         <div>
-            
-            jkjsdkfjl;
+            <Header></Header>
+            <div>
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

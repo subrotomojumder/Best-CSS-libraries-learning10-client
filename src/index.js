@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <App />
-    <Toaster/>
+      <Toaster/>
     </AuthProvider>
   </React.StrictMode>
 );

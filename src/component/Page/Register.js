@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
-import { useContext } from 'react';
-import { AuthContext } from '../Context/AuthProvider';
+import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import { useContext } from 'react';
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
-    const {createUser, googleLogin, facebookLogin } = useContext(AuthContext);
+    const {createUser, googleLogin, facebookLogin} = useContext(AuthContext);
 
     const [userInfo, setUserInfo] = useState({});
     const [error, setError] = useState('');
         
     const handleSubmit = (e) => {
+        console.log(userInfo.name, userInfo.photoUrl, userInfo.email, userInfo.password)
         e.preventDefault();
         if (userInfo.password.length < 6) {
             toast.error('Your password wrong')
@@ -64,6 +65,12 @@ const Register = () => {
                 </div>
                 <div className="form-control">
                     <label className="label">
+                        <span className="label-text">Photo URL</span>
+                    </label>
+                    <input onChange={handleNameChange} name='photoUrl' type="text" placeholder="photo url" className="input input-bordered" required/>
+                </div>
+                <div className="form-control">
+                    <label className="label">
                         <span className="label-text">Email</span>
                     </label>
                     <input onChange={handleNameChange} name='email' type="email" placeholder="email" className="input input-bordered" required/>
@@ -74,29 +81,20 @@ const Register = () => {
                     </label>
                     <input onChange={handleNameChange} name='password' type="password" placeholder="password" className="input input-bordered" required/>
                     {error && <small className='text-red-600 ml-3'>error: {error}</small>}
-                    <div className='flex ml-3'>
-                        <input type="checkbox" />
-                        <label className="label">
-                            <Link to='' className="label-text-alt link link-hover">Terms and Condition</Link>
-                        </label>
-                    </div>
+                    <Link to='/login'><small className="link link-hover text-blue-600">Already have a account. login</small></Link>
+                </div>
+                <div className="form-control mt-6">
+                    <button className="btn btn-primary">Register</button>
                 </div>
                 <div className='flex justify-evenly mt-3'>
                     <div onClick={handleGoogleSignIn}>
                         <FaGoogle className='mx-auto text-2xl text-orange-500 hover:text-sky-500' />
                         <p><small>google login</small></p>
                     </div>
-                    <div>
-                        <FaGithub className='mx-auto text-2xl text-orange-500 hover:text-sky-500' />
-                        <p><small>github login</small></p>
-                    </div>
                     <div onClick={handleFacebookSignIn}>
                         <FaFacebook className='mx-auto text-2xl text-orange-500 hover:text-sky-500' />
                         <p><small>facebook login</small></p>
                     </div>
-                </div>
-                <div className="form-control mt-6">
-                    <button className="btn btn-primary">Login</button>
                 </div>
             </form>
         </div>
