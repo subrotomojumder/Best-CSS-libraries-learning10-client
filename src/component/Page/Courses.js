@@ -11,13 +11,12 @@ const Courses = () => {
                     {
                         allCourses.map(course =>
                             <Link>
-                                <button
+                                <p
                                     key={course.id}
-                                    className="text-white transition duration-200 rounded shadow-md  hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-
+                                    className='btn btn-outline outline-yellow-300 w-full text-blue-700 my-3'
                                 >
-                                    {course.name}
-                                </button>
+                                  Lesion:  {course.name}
+                                </p>
                             </Link>)
                     }
                 </div>

@@ -22,7 +22,8 @@ const Register = () => {
         }
         createUser(userInfo.email, userInfo.password)
         .then(()=>{
-            toast.success('please check your email and verified your account')
+            
+            toast.success('please reload your page')
         })
         .catch(e => {
             setError(e.textStatus || e.message)

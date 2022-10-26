@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 
 import toast from 'react-hot-toast';
@@ -10,6 +10,10 @@ const Login = () => {
 
     const [userInfo, setUserInfo] = useState({});
     const [error, setError] = useState('');
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +25,8 @@ const Login = () => {
         }
         signIn(userInfo.email, userInfo.password)
             .then(() => {
-                toast.success('please check your email and verified your account')
+                toast.success('please check your email and verified your account');
+                navigate(from , {replace: true})
             })
             .catch(e => {
                 setError(e.textStatus || e.message)
