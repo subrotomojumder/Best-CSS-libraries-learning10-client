@@ -32,6 +32,7 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     }
     const facebookLogin = () => {
+        setIsLoading(true)
         return signInWithPopup(auth, facebookProvider)
     }
 

@@ -11,7 +11,7 @@ const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
     return (
-        <div className="bg-indigo-500 z-30">
+        <div className="bg-indigo-500">
             <div className="px-4 py-3 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <Link

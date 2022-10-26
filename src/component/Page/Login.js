@@ -17,7 +17,6 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(userInfo.password, userInfo.email)
         if (userInfo.password.length < 6) {
             toast.error('Your password wrong')
             setError('Password provide at least 6 characters!')
@@ -25,8 +24,9 @@ const Login = () => {
         }
         signIn(userInfo.email, userInfo.password)
             .then(() => {
-                toast.success('please check your email and verified your account');
-                navigate(from , {replace: true})
+                navigate(from, { replace: true })
+                e.target.reset();
+                toast.success('open your account');
             })
             .catch(e => {
                 setError(e.textStatus || e.message)
@@ -39,7 +39,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleLogin()
             .then(() => {
-
+                navigate(from, { replace: true })
             })
             .catch(e => {
                 toast.error(e.message)
@@ -48,10 +48,9 @@ const Login = () => {
     const handleFacebookSignIn = () => {
         facebookLogin()
             .then(() => {
-
+                navigate(from, { replace: true })
             })
             .catch(e => {
-                console.log(e)
                 toast.error(e.message)
             })
     }
@@ -70,9 +69,9 @@ const Login = () => {
                     <label className="label">
                         <span className="label-text">Password</span>
                     </label>
-                    <input onChange={handleInputChange} name='password' type="text" placeholder="password" className="input input-bordered mb-3" />
-                    {error && <small className='text-red-600 ml-3'>error: {error}</small>}
+                    <input onChange={handleInputChange} name='password' type="password" placeholder="password" className="input input-bordered mb-3" />
                     <Link to='/register'><small className="link link-hover text-blue-600">Create new account !</small></Link>
+                    {error && <small className='text-red-600'>error: {error}</small>}
                 </div>
                 <div className='flex justify-evenly mt-3'>
                     <div onClick={handleGoogleSignIn}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook, FaTruckLoading } from "react-icons/fa";
 import { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -11,6 +11,7 @@ const Register = () => {
 
     const [userInfo, setUserInfo] = useState({});
     const [error, setError] = useState('');
+    const navigate = useNavigate();
         
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,6 +33,7 @@ const Register = () => {
             .catch(e => setError(e.message))
             emailVerifyFunc()
             .then(()=> { })
+            navigate('/')
             setError('')
             toast.success('please check your email and reload your page', {duration: 8000,})
             e.target.reset();
@@ -94,8 +96,8 @@ const Register = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input onChange={handleNameChange} name='password' type="password" placeholder="password" className="input input-bordered" required/>
-                    {error && <small className='text-red-600 ml-3'>error: {error}</small>}
                     <Link to='/login'><small className="link link-hover text-blue-600">Already have a account. login</small></Link>
+                    {error && <small className='text-red-600'>error: {error}</small>}
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn btn-primary">Register</button>
