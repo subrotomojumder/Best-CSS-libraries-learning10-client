@@ -5,9 +5,9 @@ const Courses = () => {
     const allCourses = useLoaderData();
     return (
         <div className='bg-blue-100 px-4 lg:px-16 min-h-screen'>
-            <h1 className='text-4xl font-semibold text-center text-purple-600 py-4'>Our all courses Library</h1>
+            <h1 className='text-4xl font-semibold text-center text-purple-600 py-4'>Our all course Tutorials</h1>
             <div className='lg:grid grid-cols-4'>
-                <div className='border-2 border-yellow-400'>
+                <div>
                     {
                         allCourses.map(course =>
                             <Link>

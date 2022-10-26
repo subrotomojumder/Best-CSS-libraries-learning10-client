@@ -31,9 +31,8 @@ const Home = () => {
                         </span>
                     </h2>
                     <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                        quae. explicabo.
+                    Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a 
+                    markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.
                     </p>
                     <div className="flex items-center">
                         <Link to='courses'>

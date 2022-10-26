@@ -1,32 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaTruckLoading } from "react-icons/fa";
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const Register = () => {
-    const {createUser, googleLogin, facebookLogin} = useContext(AuthContext);
+    const {createUser, googleLogin, facebookLogin, updateUserProfileFunc, emailVerifyFunc} = useContext(AuthContext);
 
     const [userInfo, setUserInfo] = useState({});
     const [error, setError] = useState('');
         
     const handleSubmit = (e) => {
-        console.log(userInfo.name, userInfo.photoUrl, userInfo.email, userInfo.password)
         e.preventDefault();
-        if (userInfo.password.length < 6) {
+        const name = userInfo.name;
+        const photoURL = userInfo.photoUrl;
+        const email = userInfo.email;
+        const password = userInfo.password;
+
+        if (password.length < 6) {
             toast.error('Your password wrong')
             setError('Password provide at least 6 characters!')
             return;
         }
-        createUser(userInfo.email, userInfo.password)
+        createUser(email, password)
         .then(()=>{
-            
-            toast.success('please reload your page')
+            updateUserProfileFunc(name, photoURL)
+            .then(()=> { })
+            .catch(e => setError(e.message))
+            emailVerifyFunc()
+            .then(()=> { })
+            setError('')
+            toast.success('please check your email and reload your page', {duration: 8000,})
+            e.target.reset();
         })
         .catch(e => {
             setError(e.textStatus || e.message)
+            toast.error(e.message)
         })
 
     }

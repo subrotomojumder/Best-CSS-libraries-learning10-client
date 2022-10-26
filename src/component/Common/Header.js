@@ -9,7 +9,7 @@ import { FaUser } from "react-icons/fa";
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [them, setThem] = useState(false);
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
 
     return (
         <div className="bg-indigo-500 z-30">
@@ -62,11 +62,12 @@ const Header = () => {
                         </li>
                         <li>
                             {user && user.uid ?
-                                <Link to='/profile'>
-                                    <div title={user.display}>
-                                        {user && user.photoURL ? <img src={user.photoURL} className='w-20' alt="" /> : <FaUser className="text-3xl"></FaUser>}
+                                <><Link to='/profile'>
+                                    <div title={user.displayName}>
+                                        {user && user.photoURL ? <img src={user.photoURL} className='w-20' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
                                     </div>
                                 </Link>
+                                <button onClick={logOut}>logout</button></>
                                 : <Link
                                     to="/login"
                                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
