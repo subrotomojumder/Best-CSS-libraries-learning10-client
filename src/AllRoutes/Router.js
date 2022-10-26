@@ -7,6 +7,7 @@ import Register from '../component/Page/Register';
 import ErrorPage from "../component/Page/ErrorPage";
 import PrivateRoute from '../AllRoutes/PrivateRoute';
 import Blog from "../component/Page/Blog";
+import CourseDetails from "../component/Other/CourseDetails";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,12 @@ const router = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: ()=> fetch('http://localhost:5000/courses'),
+                loader: ()=> fetch('https://music-album-woad.vercel.app/courses'),
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetails></CourseDetails>,
+                loader: ({params})=> fetch(`https://music-album-woad.vercel.app/course/${params.id}`)
             },
            {
             path: '/login',

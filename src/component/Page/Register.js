@@ -24,6 +24,7 @@ const Register = () => {
             setError('Password provide at least 6 characters!')
             return;
         }
+        // create User functionality 
         createUser(email, password)
         .then(()=>{
             updateUserProfileFunc(name, photoURL)
@@ -41,6 +42,7 @@ const Register = () => {
         })
 
     }
+    // access input value
     const handleNameChange = e =>{
         setUserInfo({...userInfo, [e.target.name]: e.target.value})
     }

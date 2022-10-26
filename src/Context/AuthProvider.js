@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
-
+    // user authentication code
     const createUser = (email, password) => {
         setIsLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
@@ -40,6 +40,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    // instant changes user access 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)

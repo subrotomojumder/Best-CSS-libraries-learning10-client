@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from '../../assets/images/logo.png'
 import { AuthContext } from "../../Context/AuthProvider";
 import { FaUser } from "react-icons/fa";
 
@@ -21,8 +20,8 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                     >
-                        <img className="h-10" src={logo} alt="" />
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
+                        <img className="h-10" src='https://w7.pngwing.com/pngs/696/424/png-transparent-logo-css-css3-thumbnail.png' alt="" />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-orange-200 uppercase">
                             Best CSS Libraries
                         </span>
                     </Link>
@@ -58,13 +57,13 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                            <button title="mode change" onClick={() => setThem(!them)} className={them ? "py-1 w-20 rounded-md bg-white" : "py-1 w-20 rounded-md bg-black text-white"}>{them ? "Normal" : "Dark"}</button>
+                            <button title="mode change" onClick={() => setThem(!them)} className={them ? "py-1 w-20 rounded-md bg-white" : "py-1 w-20 rounded-md bg-black text-white"}>{them ? "Light" : "Dark"}</button>
                         </li>
                         <li>
                             {user && user.uid ?
                                 <><Link to='/profile'>
-                                    <div title={user.displayName}>
-                                        {user && user.photoURL ? <img src={user.photoURL} className='w-20' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
+                                    <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                                        {user && user.photoURL ? <img src={user.photoURL} className='h-10 w-10 rounded-full' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
                                     </div>
                                 </Link>
                                 <button onClick={logOut}>logout</button></>
@@ -112,8 +111,8 @@ const Header = () => {
                                                 title="Company"
                                                 className="inline-flex items-center"
                                             >
-                                                <img className="h-10" src={logo} alt="" />
-                                                <span>
+                                                <img className="h-10" src='https://w7.pngwing.com/pngs/696/424/png-transparent-logo-css-css3-thumbnail.png' alt="" />
+                                                <span className="text-lg font-bold tracking-wide text-orange-300 uppercase">
                                                     The Best CSS Libraries
                                                 </span>
                                             </Link>
@@ -167,7 +166,7 @@ const Header = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <button onClick={() => setThem(!them)} className={them ? "py-1 w-20 rounded-md bg-white" : "py-1 w-20 rounded-md bg-black text-white"}>{them ? "Normal" : "Dark"}</button>
+                                                <button onClick={() => setThem(!them)} className={them ? "py-1 w-20 rounded-md bg-white" : "py-1 w-20 rounded-md bg-black text-white"}>{them ? "Light" : "Dark"}</button>
                                             </li>
                                             <li>
                                                 <li>
