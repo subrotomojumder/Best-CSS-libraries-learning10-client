@@ -20,7 +20,7 @@ const Courses = () => {
                             </Link>)
                     }
                 </div>
-                <div className='lg:col-span-3 my-4 lg:grid grid-cols-2 gap-6 lg:ml-6'>
+                <div className='lg:col-span-3 mt-4 mb-16 lg:grid grid-cols-2 gap-6 lg:ml-6'>
                     {
                         allTutorial.map(tutorial => <Category tutorial={tutorial} key={tutorial.id}></Category>)
                     }
