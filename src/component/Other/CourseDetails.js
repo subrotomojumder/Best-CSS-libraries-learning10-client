@@ -9,6 +9,11 @@ const refer = createRef();
 const CourseDetails = () => {
     const course = useLoaderData();
     const { id, name, heading, img, description } = course;
+    const options = {
+        orientation: 'landscape',
+        unit: 'in',
+        format: [15,7]
+    };
     return (
         <div ref={refer} className='bg-gray-100 min-h-screen px-8 py-20 lg:px-16'>
             <div className='py-8 lg:grid grid-cols-2 items-center'>
@@ -20,7 +25,7 @@ const CourseDetails = () => {
                     <h3 className='text-3xl ml-1 mb-2 text-orange-600'>{heading}</h3>
                     <p className='text-lg'>{description}</p>
                     <div className=''>
-                        <Pdf targetRef={refer} filename={`${name}-course.pdf`}>
+                        <Pdf targetRef={refer} filename={`${name}-course.pdf`} options={options}>
                             {({ toPdf }) => <button
                                 
                                 onClick={toPdf}

@@ -24,13 +24,13 @@ const Premium = () => {
                     <h3 className='text-2xl font-semibold my-2'>Have a Good journey of your {name} learning</h3>
                     <h3 className='text-4xl text-orange-600'>Welcome</h3>
                 </div>
-                : <div className='bg-cyan-500 rounded-lg p-10 text-center'>
+                : <div className='bg-cyan-400 rounded-lg p-10 text-center'>
                 <div>
                     <h1 className='text-5xl text-white mb-3'>{name}</h1>
                     <h3 className='text-yellow-700 text-3xl mb-3'>Price: ${pirce}</h3>
                 </div>
                 <div className='mb-6'>
-                    <h3 className='text-2xl'>Name: {user.displayName}</h3>
+                    <h3 className='text-2xl text-blue-700 mb-2'>Name: {user.displayName}</h3>
                     <p className='font-bold text-gray-700'>ID: {user.uid}</p>
                 </div>
                 <div className='mt-4'>

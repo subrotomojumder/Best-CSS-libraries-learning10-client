@@ -6,7 +6,7 @@ const Category = ({ tutorial }) => {
     const { id, pirce,name, img } = tutorial;
     return (
         <div>
-            <div className='border-4 border-warning rounded-lg my-3 lg:my-0'>
+            <div className='border-4 border-orange-300 rounded-lg my-3 lg:my-0'>
                 <img src={img} alt="" className='w-full lg:h-64' />
                 <div className='flex justify-between items-center bg-cyan-300 p-3'>
         
