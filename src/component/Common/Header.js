@@ -61,12 +61,14 @@ const Header = () => {
                         </li>
                         <li>
                             {user && user.uid ?
-                                <><Link to='/profile'>
-                                    <div className="tooltip tooltip-left" data-tip={user.displayName}>
-                                        {user && user.photoURL ? <img src={user.photoURL} className='h-10 w-10 rounded-full' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
-                                    </div>
-                                </Link>
-                                <button onClick={logOut}>logout</button></>
+                                <div className="flex">
+                                    <Link to='/profile'>
+                                        <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                                            {user && user.photoURL ? <img src={user.photoURL} className='h-10 w-10 rounded-full' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
+                                        </div>
+                                    </Link>
+                                    <button className="bg-sky-700 h-10 font-bold rounded-xl px-3 ml-3 text-white hover:text-warning" onClick={logOut}>logout</button>
+                                </div>
                                 : <Link
                                     to="/login"
                                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
@@ -171,11 +173,14 @@ const Header = () => {
                                             <li>
                                                 <li>
                                                     {user && user.uid ?
-                                                        <Link to='/profile'>
-                                                            <div title={user.display}>
-                                                                {user && user.photoURL ? <img src={user.photoURL} className='w-20' alt="" /> : <FaUser className="text-3xl"></FaUser>}
-                                                            </div>
-                                                        </Link>
+                                                        <div className="flex">
+                                                            <Link to='/profile'>
+                                                                <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                                                                    {user && user.photoURL ? <img src={user.photoURL} className='h-10 w-10 rounded-full' alt="" /> : <FaUser className="text-3xl text-white"></FaUser>}
+                                                                </div>
+                                                            </Link>
+                                                            <button className="bg-sky-700 h-10 font-bold rounded-xl px-3 ml-3 text-white hover:text-warning" onClick={logOut}>logout</button>
+                                                        </div>
                                                         : <Link
                                                             to="/login"
                                                             className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"

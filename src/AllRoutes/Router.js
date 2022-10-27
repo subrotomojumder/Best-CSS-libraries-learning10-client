@@ -9,6 +9,7 @@ import PrivateRoute from '../AllRoutes/PrivateRoute';
 import Blog from "../component/Page/Blog";
 import CourseDetails from "../component/Other/CourseDetails";
 import Premium from "../component/Other/Premium";
+import FAQ from "../component/Page/FAQ";
 
 const router = createBrowserRouter([
     {
@@ -47,7 +48,10 @@ const router = createBrowserRouter([
             path: '/blog',
             element:<Blog></Blog>
            },
-           
+           {
+            path: '/faq',
+            element: <FAQ></FAQ>
+           }
         ]
     }
 ])
