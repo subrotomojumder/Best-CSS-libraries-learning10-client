@@ -75,7 +75,7 @@ const Register = () => {
                 <div className="form-control">
                     <h1 className='text-3xl font-semibold text-primary-focus'>Create account..</h1>
                     <label className="label">
-                        <span className="label-text">Name</span>
+                        <span className="label-text">Full name</span>
                     </label>
                     <input onChange={handleNameChange} name='name' type="text" placeholder="name" className="input input-bordered" required/>
                 </div>
