@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaFacebook, FaTruckLoading } from "react-icons/fa";
+import { FaGoogle, FaFacebook,} from "react-icons/fa";
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useContext } from 'react';
